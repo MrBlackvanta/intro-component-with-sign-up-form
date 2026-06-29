@@ -3,11 +3,14 @@
 @theme {
   --color-red: hsl(0, 100%, 74%);
   --color-green: hsl(154, 59%, 51%);
+  --color-green-light: hsl(154, 59%, 61%);
   --color-blue: hsl(248, 32%, 49%);
   --color-dark-blue: hsl(249, 10%, 26%);
   --color-grayish-blue: hsl(246, 25%, 77%);
 
   --font-poppins: "Poppins", sans-serif;
+
+  --shadow-card: 0 0.625rem 1.25rem hsl(0 0% 0% / 0.16);
 }
 
 @layer base {
@@ -31,6 +34,26 @@
 }
 
 @utility v-footer-link {
-  @apply font-semibold underline underline-offset-2;
-  @apply hover:text-blue motion-safe:transition-colors motion-safe:duration-200;
+  @apply hover:text-blue font-semibold underline underline-offset-2 motion-safe:transition-colors motion-safe:duration-200;
+}
+
+@utility v-field {
+  @apply border-grayish-blue/50 text-dark-blue placeholder:text-dark-blue/70 focus:border-dark-blue w-full rounded-md border bg-white px-8 py-3.5 font-semibold motion-safe:transition-colors motion-safe:duration-200;
+}
+
+@utility v-field-error {
+  @apply border-red text-red placeholder:text-red pr-12;
+  background-image: url("/icon-error.svg");
+  background-repeat: no-repeat;
+  background-position: right 1.5rem center;
+  background-size: 1.25rem;
+}
+
+@utility v-field-message {
+  @apply text-red mt-2 pr-1 text-right text-xs italic;
+}
+
+@utility v-btn {
+  @apply bg-green hover:bg-green-light mt-2 w-full rounded-md px-6 py-4 text-sm font-semibold tracking-wide text-white uppercase motion-safe:transition-colors motion-safe:duration-200;
+  box-shadow: inset 0 -0.25rem 0 hsl(0 0% 0% / 0.18);
 }
