@@ -1,33 +1,22 @@
 @import "tailwindcss";
 
 @theme {
-  --color-strong-cyan: hsl(171, 66%, 44%);
-  --color-strong-cyan-light: hsl(171, 66%, 53%);
-  --color-light-blue: hsl(233, 100%, 69%);
-  --color-light-blue-light: hsl(233, 100%, 77%);
-  --color-dark-grayish-blue: hsl(210, 10%, 33%);
-  --color-grayish-blue: hsl(201, 11%, 66%);
+  --color-red: hsl(0, 100%, 74%);
+  --color-green: hsl(154, 59%, 51%);
+  --color-blue: hsl(248, 32%, 49%);
+  --color-dark-blue: hsl(249, 10%, 26%);
+  --color-grayish-blue: hsl(246, 25%, 77%);
 
-  --font-bai-jamjuree: "Bai Jamjuree", sans-serif;
-
-  --tracking-heading: -0.0163em;
-  --tracking-body: 0.0075em;
-
-  --shadow-cyan:
-    0 0.625rem 1.25rem rgb(137 229 199 / 0.5),
-    inset 0 -0.1875rem 0 rgb(0 0 0 / 0.151);
-  --shadow-blue:
-    0 0.625rem 1.25rem rgb(0 0 0 / 0.099),
-    inset 0 -0.1875rem 0 rgb(0 0 0 / 0.151);
+  --font-poppins: "Poppins", sans-serif;
 }
 
 @layer base {
   html {
-    @apply font-bai-jamjuree text-dark-grayish-blue;
+    @apply font-poppins text-dark-blue;
   }
 
   body {
-    @apply bg-white text-lg;
+    @apply bg-red;
   }
 
   a,
@@ -38,16 +27,10 @@
 }
 
 @utility v-focus-visible-ring {
-  @apply focus-visible:ring-strong-cyan focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none;
-}
-
-@utility v-btn {
-  @apply inline-flex items-center justify-center rounded-full px-12 py-3.5;
-  @apply text-lg font-semibold text-white;
-  @apply motion-safe:transition-[background-color,box-shadow] motion-safe:duration-200 motion-safe:ease-out;
+  @apply focus-visible:ring-blue focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none;
 }
 
 @utility v-footer-link {
   @apply font-semibold underline underline-offset-2;
-  @apply hover:text-strong-cyan motion-safe:transition-colors motion-safe:duration-200;
+  @apply hover:text-blue motion-safe:transition-colors motion-safe:duration-200;
 }

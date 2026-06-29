@@ -1,24 +1,3 @@
-import {
-  FacebookIcon,
-  InstagramIcon,
-  LogoIcon,
-  TwitterIcon,
-} from "@/components/icons";
-
-const navLinks = [
-  { label: "FAQs", href: "#" },
-  { label: "Contact Us", href: "#" },
-  { label: "Privacy Policy", href: "#" },
-  { label: "Press Kit", href: "#" },
-  { label: "Install Guide", href: "#" },
-];
-
-const socialLinks = [
-  { label: "Clipboard on Facebook", href: "#", Icon: FacebookIcon },
-  { label: "Clipboard on Twitter", href: "#", Icon: TwitterIcon },
-  { label: "Clipboard on Instagram", href: "#", Icon: InstagramIcon },
-];
-
 export default function Footer() {
   return (
     <footer>
