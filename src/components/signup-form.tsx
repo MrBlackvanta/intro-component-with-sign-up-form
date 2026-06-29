@@ -60,6 +60,39 @@ function getFieldError(field: Field, value: string): string | undefined {
   return undefined;
 }
 
+function FieldError({ id, message }: { id: string; message?: string }) {
+  const open = Boolean(message);
+  const [shown, setShown] = useState(message);
+
+  // Retain the last message so it stays visible while the field collapses.
+  if (message !== undefined && message !== shown) {
+    setShown(message);
+  }
+
+  return (
+    <div
+      className={cn(
+        "grid duration-300 ease-out motion-safe:transition-[grid-template-rows]",
+        open ? "grid-rows-[1fr]" : "grid-rows-[0fr]",
+      )}
+    >
+      <div className="min-h-0 overflow-hidden">
+        <p
+          id={id}
+          role="alert"
+          aria-hidden={!open}
+          className={cn(
+            "v-field-message duration-300 ease-out motion-safe:transition-[opacity,transform]",
+            open ? "translate-y-0 opacity-100" : "-translate-y-1 opacity-0",
+          )}
+        >
+          {shown}
+        </p>
+      </div>
+    </div>
+  );
+}
+
 export default function SignupForm() {
   const baseId = useId();
   const [values, setValues] = useState<FormValues>(INITIAL_VALUES);
@@ -119,11 +152,7 @@ export default function SignupForm() {
               aria-describedby={error ? errorId : undefined}
               className={cn("v-field", error && "v-field-error")}
             />
-            {error && (
-              <p id={errorId} role="alert" className="v-field-message">
-                {error}
-              </p>
-            )}
+            <FieldError id={errorId} message={error} />
           </div>
         );
       })}
@@ -132,7 +161,7 @@ export default function SignupForm() {
         Claim your free trial
       </button>
 
-      <p className="text-grayish-blue px-4 text-center text-xs">
+      <p className="text-grayish-blue -mt-2 px-4 text-center text-xs">
         By clicking the button, you are agreeing to our{" "}
         <a href="#" className="text-red font-bold hover:underline">
           Terms and Services

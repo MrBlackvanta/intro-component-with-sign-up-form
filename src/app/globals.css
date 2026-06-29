@@ -23,8 +23,7 @@
   }
 
   a,
-  button,
-  input {
+  button {
     @apply v-focus-visible-ring;
   }
 }
@@ -38,11 +37,12 @@
 }
 
 @utility v-field {
-  @apply border-grayish-blue/50 text-dark-blue placeholder:text-dark-blue/70 focus:border-dark-blue w-full rounded-md border bg-white px-8 py-3.5 font-semibold motion-safe:transition-colors motion-safe:duration-200;
+  @apply border-grayish-blue/50 text-dark-blue placeholder:text-dark-blue/70 w-full rounded-md border bg-white px-8 py-3.5 font-semibold motion-safe:transition-colors motion-safe:duration-200;
+  @apply focus:border-dark-blue focus:border-2 focus:outline-none;
 }
 
 @utility v-field-error {
-  @apply border-red text-red placeholder:text-red pr-12;
+  @apply border-red text-red placeholder:text-red border-2 pr-12;
   background-image: url("/icon-error.svg");
   background-repeat: no-repeat;
   background-position: right 1.5rem center;
@@ -54,6 +54,6 @@
 }
 
 @utility v-btn {
-  @apply bg-green hover:bg-green-light mt-2 w-full rounded-md px-6 py-4 text-sm font-semibold tracking-wide text-white uppercase motion-safe:transition-colors motion-safe:duration-200;
+  @apply bg-green hover:bg-green-light mt-2 w-full cursor-pointer rounded-md px-6 py-4 text-sm font-semibold tracking-wide text-white uppercase motion-safe:transition-colors motion-safe:duration-200;
   box-shadow: inset 0 -0.25rem 0 hsl(0 0% 0% / 0.18);
 }
