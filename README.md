@@ -23,7 +23,7 @@ A responsive intro component with a client-side validated sign-up form. On submi
 ### Links
 
 - Solution URL: [GitHub](https://github.com/MrBlackvanta/intro-component-with-sign-up-form)
-- Live Site URL: [Netlify](https://vanta-intro-component-with-sign-up-form.netlify.app)
+- Live Site URL: [Netlify](https://vanta-intro-component-with-sign-up-fo.netlify.app)
 
 ## My process
 
