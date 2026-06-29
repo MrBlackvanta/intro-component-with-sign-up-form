@@ -9,9 +9,12 @@ This is a solution to the [Intro component with sign up form challenge on Fronte
   - [Links](#links)
 - [My process](#my-process)
   - [Built with](#built-with)
+  - [Accessibility & design deviations](#accessibility--design-deviations)
 - [Author](#author)
 
 ## Overview
+
+A responsive intro component with a client-side validated sign-up form. On submit, empty fields and badly formatted emails surface inline error messages that slide in (and back out) with an animated height transition, gated behind `prefers-reduced-motion`. Fields are labelled, errors are wired with `aria-invalid` / `aria-describedby`, and focus is a single visible border.
 
 ### Screenshot
 
@@ -30,6 +33,18 @@ This is a solution to the [Intro component with sign up form challenge on Fronte
 - [React 19](https://react.dev/)
 - [TypeScript](https://www.typescriptlang.org/)
 - [Tailwind CSS v4](https://tailwindcss.com/)
+
+### Accessibility & design deviations
+
+The design's colours fall below the WCAG AA contrast minimum (4.5:1 for body text) in three places. They are implemented as designed for visual fidelity and documented here:
+
+| Element                    | Foreground on background                     | Ratio   | Min    |
+| -------------------------- | -------------------------------------------- | ------- | ------ |
+| Hero heading + paragraph   | White on coral `hsl(0 100% 74%)`             | ~2.5:1  | 4.5:1  |
+| Terms paragraph            | Grayish-blue `hsl(246 25% 77%)` on white     | ~1.7:1  | 4.5:1  |
+| "Terms and Services" link  | Red `hsl(0 100% 74%)` on white               | ~2.5:1  | 4.5:1  |
+
+Because of these, Lighthouse Accessibility reports contrast findings on the above elements. Everything else meets the bar: semantic landmarks, a single `<h1>`, labelled form fields, `aria-invalid`/`aria-describedby` error associations, visible keyboard focus, and reduced-motion handling.
 
 ## Author
 
